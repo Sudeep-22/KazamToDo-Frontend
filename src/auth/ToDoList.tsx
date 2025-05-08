@@ -37,15 +37,23 @@ const TodoPage: React.FC = () => {
 
   return (
     <div>
-      <h2>Todos</h2>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="New todo" />
-      <button onClick={addTodo}>Add</button>
-      <button onClick={logout}>Logout</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo._id}>{todo.title}</li>
-        ))}
-      </ul>
+      <div className='mt-15 flex w-full justify-center' >
+        <div>
+          <h2 className='text-2xl'>Todos</h2>
+        </div>
+        <div>
+          <input className="border rounded px-2 py-1 w-60" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="New todo" />
+          <button onClick={addTodo} className=' text-gray-600 my-8 px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-400 hover:cursor-pointer'>Add</button>
+          <button onClick={logout}>Logout</button>
+        </div>
+      </div>
+      <div>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo._id}>{todo.title}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
